@@ -24,7 +24,8 @@ export async function getGuide(slug: string): Promise<Guide | null> {
   if (redis) {
     const realSlug = await redis.get(`alias:${cleanSlug}`);
     const data = await redis.get(realSlug ? `guide:${realSlug}` : `guide:${cleanSlug}`);
-    return data ? (typeof data === 'string' ? JSON.parse(data) : data) : null;
+    // FIX: Explicitly casting to Guide
+    return data ? (typeof data === 'string' ? (JSON.parse(data) as Guide) : (data as Guide)) : null;
   } else {
     const realSlug = aliases.get(cleanSlug);
     return memoryStore.get(realSlug || cleanSlug) || null;
@@ -38,11 +39,9 @@ export async function getAllGuides(): Promise<Guide[]> {
       if (!keys || keys.length === 0) return [];
       const pipeline = redis.pipeline();
       keys.forEach(k => pipeline.get(k));
+      const results = await pipeline.exec() as any[];
       
-      // FIX: Cast to any[] to satisfy TypeScript
-      const results = await pipeline.exec() as any[]; 
-      
-      return results.map(r => typeof r === 'string' ? JSON.parse(r) : r).filter(Boolean) as Guide[];
+      return results.map(r => typeof r === 'string' ? (JSON.parse(r) as Guide) : (r as Guide)).filter(Boolean) as Guide[];
     } catch (e) {
       return [];
     }
