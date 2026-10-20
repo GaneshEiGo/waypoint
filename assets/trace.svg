@@ -1,68 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" role="img" aria-labelledby="t d">
-  <title id="t">Live research, one event at a time</title>
-  <desc id="d">An app name is typed into a search row, then research lines appear one by one until the guide is ready.</desc>
-  <style>
-    .bg{fill:#FAFAF8;stroke:#E6E4DF}
-    .row{fill:#fff;stroke:#D8D5CE}
-    .mono{font:500 18px 'JetBrains Mono',Menlo,Consolas,monospace;fill:#111}
-    .ph{font:400 17px Inter,Helvetica,Arial,sans-serif;fill:#9A9A9A}
-    .ln{font:400 17px Inter,Helvetica,Arial,sans-serif;fill:#111}
-    .ok{font-weight:500;fill:#2F5D50}
-    .note{font:500 12px 'JetBrains Mono',Menlo,Consolas,monospace;fill:#9A9A9A}
-    .rule{stroke:#E6E4DF}
-  </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360">
+  <rect width="900" height="360" fill="#FAFAF8" rx="6"/>
+  
+  <!-- UI Window -->
+  <rect x="40" y="40" width="820" height="280" fill="#FFFFFF" rx="6" stroke="#E6E4DF" stroke-width="1"/>
+  
+  <!-- Top Bar -->
+  <circle cx="60" cy="60" r="5" fill="#E6E4DF"/>
+  <circle cx="80" cy="60" r="5" fill="#E6E4DF"/>
+  <circle cx="100" cy="60" r="5" fill="#E6E4DF"/>
+  <text x="800" y="65" font-family="Courier New, monospace" font-size="11" fill="#6B6B6B">Agent Pipeline</text>
 
-  <rect class="bg" x=".5" y=".5" width="899" height="399" rx="4"/>
-  <rect class="row" x="40" y="32" width="820" height="48" rx="4"/>
+  <!-- Prompt -->
+  <text x="60" y="110" font-family="Courier New, monospace" font-size="15" fill="#6B6B6B">$ waypoint generate --app linear</text>
+  
+  <!-- Blinking Cursor -->
+  <rect x="380" y="95" width="8" height="16" fill="#1F4FD8">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
 
-  <text class="ph" x="60" y="62">Search an app, or type one you’re not sure about
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.02;.03;.93;.96;1" values="1;1;0;0;1;1"/>
-  </text>
-
-  <clipPath id="type">
-    <rect x="60" y="40" width="0" height="32">
-      <animate attributeName="width" dur="12s" repeatCount="indefinite" keyTimes="0;.03;.08;.93;.96;1" values="0;0;72;72;0;0"/>
-    </rect>
-  </clipPath>
-  <text class="mono" x="60" y="63" clip-path="url(#type)">Linear</text>
-
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.12;.15;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="118" width="8" height="8" fill="#1F4FD8"/>
-    <text class="ln" x="68" y="127">Finding the provider’s developer documentation</text>
-  </g>
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.22;.25;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="152" width="8" height="8" fill="#1F4FD8"/>
-    <text class="ln" x="68" y="161">Opening the official pages it found</text>
-  </g>
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.32;.35;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="186" width="8" height="8" fill="#1F4FD8"/>
-    <text class="ln" x="68" y="195">Checking how app registration works</text>
-  </g>
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.42;.45;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="220" width="8" height="8" fill="#1F4FD8"/>
-    <text class="ln" x="68" y="229">Looking for review and approval rules</text>
-  </g>
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.52;.55;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="254" width="8" height="8" fill="#1F4FD8"/>
-    <text class="ln" x="68" y="263">Checking that the developer portal is public</text>
-  </g>
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.62;.65;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="288" width="8" height="8" fill="#1F4FD8"/>
-    <text class="ln" x="68" y="297">Separating what we confirmed from what we estimate</text>
+  <!-- Step 1 -->
+  <g font-family="Courier New, monospace" font-size="14" fill="#111">
+    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.5s" fill="freeze"/>
+    <text x="60" y="150" fill="#1F4FD8">[✓]</text>
+    <text x="100" y="150">Searching documentation</text>
   </g>
 
-  <line class="rule" x1="40" y1="318" x2="860" y2="318"/>
-  <g opacity="0">
-    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.74;.78;.94;.98;1" values="0;0;1;1;0;0"/>
-    <rect x="44" y="336" width="8" height="8" fill="#2F5D50"/>
-    <text class="ln ok" x="68" y="345">Guide ready. Sources attached.</text>
+  <!-- Step 2 -->
+  <g font-family="Courier New, monospace" font-size="14" fill="#111">
+    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.2s" fill="freeze"/>
+    <text x="60" y="180" fill="#1F4FD8">[✓]</text>
+    <text x="100" y="180">Extracting OAuth endpoints</text>
   </g>
 
-  <text class="note" x="40" y="384">Illustrative. On the live site, every line is a real event.</text>
+  <!-- Step 3 -->
+  <g font-family="Courier New, monospace" font-size="14" fill="#111">
+    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.9s" fill="freeze"/>
+    <text x="60" y="210" fill="#1F4FD8">[✓]</text>
+    <text x="100" y="210">Verifying developer portal</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g font-family="Courier New, monospace" font-size="14" fill="#111">
+    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="2.6s" fill="freeze"/>
+    <text x="60" y="240" fill="#1F4FD8">[✓]</text>
+    <text x="100" y="240">Drafting guide schema</text>
+  </g>
+
+  <!-- Step 5 (Success) -->
+  <g font-family="Courier New, monospace" font-size="14" fill="#111">
+    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="3.3s" fill="freeze"/>
+    <text x="60" y="270" fill="#2F5D50">[✓]</text>
+    <text x="100" y="270" fill="#2F5D50">Validating sources</text>
+  </g>
+
+  <!-- The Finish -->
+  <g font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1F4FD8" opacity="0">
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="4s" fill="freeze"/>
+    <text x="60" y="305">Guide ready to view.</text>
+  </g>
 </svg>
