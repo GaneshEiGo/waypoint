@@ -38,7 +38,9 @@ export async function getAllGuides(): Promise<Guide[]> {
       if (!keys || keys.length === 0) return [];
       const pipeline = redis.pipeline();
       keys.forEach(k => pipeline.get(k));
-      const results = await pipeline.exec() as unknown[]; // FIX: Cast to unknown array
+      
+      // FIX: Cast to any[] to satisfy TypeScript
+      const results = await pipeline.exec() as any[]; 
       
       return results.map(r => typeof r === 'string' ? JSON.parse(r) : r).filter(Boolean) as Guide[];
     } catch (e) {
