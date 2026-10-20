@@ -1,13 +1,13 @@
-<h1 align="center">Waypoint</h1>
-
-<p align="center"><i>Know what you're walking into.</i></p>
+<p align="center">
+  <img src="assets/hero.svg" width="900" alt="Waypoint. Know what you're walking into.">
+</p>
 
 <p align="center">
   Before you build an OAuth integration, see how long it takes, how long you'll wait, and where it can go wrong.
 </p>
 
 <p align="center">
-  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img alt="Live app" src="https://img.shields.io/badge/LIVE_APP-OPEN-1F4FD8?style=for-the-badge"></a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img src="assets/live-app.svg" width="112" alt="Live app"></a>
 </p>
 
 <p align="center">
@@ -29,10 +29,7 @@
 > [!TIP]
 > **Short on time?** [Open the Google guide](https://jovial-faloodeh-fd8c22.netlify.app/g/google), then type `Linear` on the [home page](https://jovial-faloodeh-fd8c22.netlify.app). That is the whole product in about a minute.
 
----
-
-## Open a guide
-
+<p align="center"><b>Open a guide</b></p>
 <p align="center">
   <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/github"><img alt="GitHub: easy" src="https://img.shields.io/badge/GitHub-Easy-2F9E5B?style=for-the-badge"></a>
   <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/slack"><img alt="Slack: medium" src="https://img.shields.io/badge/Slack-Medium-D9822B?style=for-the-badge"></a>
@@ -40,73 +37,33 @@
   <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/salesforce"><img alt="Salesforce: hard" src="https://img.shields.io/badge/Salesforce-Hard-D14B3F?style=for-the-badge"></a>
 </p>
 
-<p align="center"><b>Tap an app below to open its forecast card</b></p>
+<p align="center"><b>Tap an app to open its forecast card</b></p>
 
 <details>
 <summary><b>GitHub</b> · Easy · 5–10 min · no wait</summary>
 <br>
-
-```
-GitHub
-------------------------------------------
-YOUR TIME      WAITING      DIFFICULTY
-5–10 min       No wait      Easy
-```
-
-The fast case. Self-serve registration, a callback URL, no wait.
-[Open the full guide](https://jovial-faloodeh-fd8c22.netlify.app/g/github)
-
+<a href="https://jovial-faloodeh-fd8c22.netlify.app/g/github"><img src="assets/guide-github.svg" width="900" alt="GitHub: your time 5 to 10 minutes, no wait, easy"></a>
 </details>
 
 <details>
 <summary><b>Slack</b> · Medium · 30–60 min · 1–5 days</summary>
 <br>
-
-```
-Slack
-------------------------------------------
-YOUR TIME      WAITING      DIFFICULTY
-30–60 min      1–5 days     Medium
-```
-
-The wait case. Quick to set up, but listing for other workspaces needs review.
-[Open the full guide](https://jovial-faloodeh-fd8c22.netlify.app/g/slack)
-
+<a href="https://jovial-faloodeh-fd8c22.netlify.app/g/slack"><img src="assets/guide-slack.svg" width="900" alt="Slack: your time 30 to 60 minutes, wait 1 to 5 days, medium"></a>
 </details>
 
 <details>
 <summary><b>Google</b> · Hard · 120–180 min · 14–42 days</summary>
 <br>
-
-```
-Google
-------------------------------------------
-YOUR TIME      WAITING      DIFFICULTY
-120–180 min    14–42 days   Hard
-```
-
-The weeks case. Consent screen, test-user limits, and extra checks when the requested access is sensitive. It depends on the scopes.
-[Open the full guide](https://jovial-faloodeh-fd8c22.netlify.app/g/google)
-
+<a href="https://jovial-faloodeh-fd8c22.netlify.app/g/google"><img src="assets/guide-google.svg" width="900" alt="Google: your time 120 to 180 minutes, wait 14 to 42 days, hard"></a>
 </details>
 
 <details>
 <summary><b>Salesforce</b> · Hard · 60–120 min · no wait</summary>
 <br>
-
-```
-Salesforce
-------------------------------------------
-YOUR TIME      WAITING      DIFFICULTY
-60–120 min     No wait      Hard
-```
-
-The complex but fast case. Many moving parts, little waiting.
-[Open the full guide](https://jovial-faloodeh-fd8c22.netlify.app/g/salesforce)
-
+<a href="https://jovial-faloodeh-fd8c22.netlify.app/g/salesforce"><img src="assets/guide-salesforce.svg" width="900" alt="Salesforce: your time 60 to 120 minutes, no wait, hard"></a>
 </details>
 
----
+<img src="assets/divider.svg" width="900" alt="">
 
 ## The idea
 
@@ -114,47 +71,21 @@ An hour of setup and six weeks of waiting look identical from the outside. Waypo
 
 Type any app name or website. You get a one-page guide that opens with three numbers: **your time**, **the wait**, and **the difficulty**. Then come the steps, the traps, who does what, and a record of what was actually checked.
 
-```
-                 1m    10m   100m  17h   7d    69d
-                 |     |     |     |     |     |
-GitHub     you   ■■■■■■                          5–10 min
-           wait                                  no wait
-
-Slack      you   ■■■■■■■■■■■                     30–60 min
-           wait  □□□□□□□□□□□□□□□□□□□□□□□         1–5 days
-
-Google     you   ■■■■■■■■■■■■■■                  120–180 min
-           wait  □□□□□□□□□□□□□□□□□□□□□□□□□□□□□   14–42 days
-
-Salesforce you   ■■■■■■■■■■■■                    60–120 min
-           wait                                  no wait
-```
-
-<sub>■ your hands-on time · □ waiting on the provider · one log scale, each tick is 10x · bars show the upper end of each range.</sub>
+<p align="center">
+  <img src="assets/forecast.svg" width="900" alt="Four setups on one log scale. Solid pixels are your hands-on time, hollow pixels are waiting on the provider.">
+</p>
 
 **Hard is not the same as slow.** Salesforce is heavy to set up but has no wait. Slack is quick to set up but slower to approve. Most docs blur the two. Waypoint keeps them apart.
 
----
+<img src="assets/divider.svg" width="900" alt="">
 
 ## Watch it research
 
 Four guides are ready. Any other app is researched live by an agent that shows its work, then saves the guide at a link you can share.
 
-The timeline reads like this. The wording below is illustrative; in the live app every line is a real event.
-
-```
-> linear
-
-  Finding Linear's developer documentation
-  Opened an official docs page
-  Checking how app registration works
-  Looking for review and approval rules
-  Checking whether the provider publishes OAuth metadata
-  Separating what we confirmed from what we are estimating
-  Writing the guide
-
-  then: your time · the wait · the difficulty
-```
+<p align="center">
+  <img src="assets/trace.svg" width="900" alt="An app name is typed, research events appear one by one, then three numbers: your time, waiting, difficulty.">
+</p>
 
 <details>
 <summary><b>The stages, as a diagram</b></summary>
@@ -177,7 +108,7 @@ flowchart LR
 
 </details>
 
----
+<img src="assets/divider.svg" width="900" alt="">
 
 ## What a guide looks like
 
@@ -230,7 +161,7 @@ Every step says who does it: the agent can help, it's your turn, or you're waiti
 
 </details>
 
----
+<img src="assets/divider.svg" width="900" alt="">
 
 ## Trust, made visible
 
@@ -270,7 +201,7 @@ Not built yet:
 - **A redirect URL field.** Type it once and it fills every step.
 - **A link preview card.** A pasted link shows the app name and the three numbers.
 
----
+<img src="assets/divider.svg" width="900" alt="">
 
 ## Run it
 
@@ -332,6 +263,9 @@ lib/
   tools.ts                search, safe fetch, probes
   prompts.ts              all agent instructions
   store.ts                saved guides
+assets/
+  hero.svg  forecast.svg  trace.svg  divider.svg  live-app.svg
+  guide-github.svg  guide-slack.svg  guide-google.svg  guide-salesforce.svg    README visuals, not source
 ```
 
 Drafting runs on Groq, through the OpenAI SDK.
@@ -348,7 +282,7 @@ Drafting runs on Groq, through the OpenAI SDK.
 - Fetching is https only, blocks private addresses, and is capped on size, time and count.
 - Web pages are treated as untrusted text, never as instructions.
 
----
+<img src="assets/divider.svg" width="900" alt="">
 
 <p align="center">
   <a href="https://jovial-faloodeh-fd8c22.netlify.app"><b>Live app</b></a> · Built by <b>Ganesh Kaduri</b> for the Composio APM Integrations take-home.<br>
