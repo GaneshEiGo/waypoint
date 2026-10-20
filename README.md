@@ -7,7 +7,14 @@
 </p>
 
 <p align="center">
-  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img alt="Live demo" src="https://img.shields.io/badge/Live_demo-open-0071E3?style=flat-square"></a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img alt="Open the live app" src="https://img.shields.io/badge/Open_the_live_app-Waypoint-0071E3?style=for-the-badge"></a>
+</p>
+
+<p align="center">
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app">jovial-faloodeh-fd8c22.netlify.app</a>
+</p>
+
+<p align="center">
   <img alt="Next.js" src="https://img.shields.io/badge/Next.js-App_Router-1D1D1F?style=flat-square&logo=nextdotjs&logoColor=white">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-1D1D1F?style=flat-square&logo=typescript&logoColor=white">
   <img alt="Groq" src="https://img.shields.io/badge/Groq-drafting-1D1D1F?style=flat-square">
@@ -275,6 +282,6 @@ Model: `[MODEL_NAME]` on Groq, through the OpenAI SDK.
 <img src="assets/divider.svg" width="900" alt="">
 
 <p align="center">
-  Built by <b>Ganesh Kaduri</b> for the Composio APM Integrations take-home.<br>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><b>Live app</b></a> · Built by <b>Ganesh Kaduri</b> for the Composio APM Integrations take-home.<br>
   <a href="mailto:kaduriganesh7@gmail.com">kaduriganesh7@gmail.com</a> · <a href="https://github.com/GaneshEiGo">GitHub</a> · <a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
 </p>
