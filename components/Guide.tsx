@@ -100,14 +100,17 @@ export default function GuideView({ guide }: { guide: Guide }) {
     setShowDownload(false);
     try {
       const html2pdf = (await import('html2pdf.js')).default;
-      const opt = {
-        margin: [0.5, 0.5, 0.5, 0.5] as [number, number, number, number], // FIX: TypeScript tuple
+      
+      // FIX: Added ': any' so Vercel stops checking the library's broken types
+      const opt: any = {
+        margin: [0.5, 0.5, 0.5, 0.5],
         filename: `Waypoint_${guide.name}_Guide.pdf`,
         image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 2, useCORS: true },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
         pagebreak: { mode: ['avoid-all', 'css'] }
       };
+      
       await html2pdf().set(opt).from(guideRef.current).save();
     } catch (e) {} finally { setIsGenerating(false); }
   };
