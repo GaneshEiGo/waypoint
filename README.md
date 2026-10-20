@@ -7,11 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img alt="Open the live app" src="https://img.shields.io/badge/Open_the_live_app-Waypoint-0071E3?style=for-the-badge"></a>
-</p>
-
-<p align="center">
-  <a href="https://jovial-faloodeh-fd8c22.netlify.app">jovial-faloodeh-fd8c22.netlify.app</a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img src="assets/live-app.svg" width="232" alt="Open the live app"></a>
 </p>
 
 <p align="center">
@@ -261,7 +257,7 @@ lib/
   prompts.ts              all agent instructions
   store.ts                saved guides
 assets/
-  hero.svg  forecast.svg  trace.svg  divider.svg
+  hero.svg  forecast.svg  trace.svg  divider.svg  live-app.svg
   guide-github.svg  guide-slack.svg  guide-google.svg  guide-salesforce.svg    README visuals, not source
 ```
 
