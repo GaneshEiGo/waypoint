@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Live research, one event at a time</title>
+  <desc id="d">An app name is typed into a search row, then research lines appear one by one until the guide is ready.</desc>
+  <style>
+    .bg{fill:#FAFAF8;stroke:#E6E4DF}
+    .row{fill:#fff;stroke:#D8D5CE}
+    .mono{font:500 18px 'JetBrains Mono',Menlo,Consolas,monospace;fill:#111}
+    .ph{font:400 17px Inter,Helvetica,Arial,sans-serif;fill:#9A9A9A}
+    .ln{font:400 17px Inter,Helvetica,Arial,sans-serif;fill:#111}
+    .ok{font-weight:500;fill:#2F5D50}
+    .note{font:500 12px 'JetBrains Mono',Menlo,Consolas,monospace;fill:#9A9A9A}
+    .rule{stroke:#E6E4DF}
+  </style>
+
+  <rect class="bg" x=".5" y=".5" width="899" height="399" rx="4"/>
+  <rect class="row" x="40" y="32" width="820" height="48" rx="4"/>
+
+  <text class="ph" x="60" y="62">Search an app, or type one you’re not sure about
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.02;.03;.93;.96;1" values="1;1;0;0;1;1"/>
+  </text>
+
+  <clipPath id="type">
+    <rect x="60" y="40" width="0" height="32">
+      <animate attributeName="width" dur="12s" repeatCount="indefinite" keyTimes="0;.03;.08;.93;.96;1" values="0;0;72;72;0;0"/>
+    </rect>
+  </clipPath>
+  <text class="mono" x="60" y="63" clip-path="url(#type)">Linear</text>
+
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.12;.15;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="118" width="8" height="8" fill="#1F4FD8"/>
+    <text class="ln" x="68" y="127">Finding the provider’s developer documentation</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.22;.25;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="152" width="8" height="8" fill="#1F4FD8"/>
+    <text class="ln" x="68" y="161">Opening the official pages it found</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.32;.35;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="186" width="8" height="8" fill="#1F4FD8"/>
+    <text class="ln" x="68" y="195">Checking how app registration works</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.42;.45;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="220" width="8" height="8" fill="#1F4FD8"/>
+    <text class="ln" x="68" y="229">Looking for review and approval rules</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.52;.55;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="254" width="8" height="8" fill="#1F4FD8"/>
+    <text class="ln" x="68" y="263">Checking that the developer portal is public</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.62;.65;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="288" width="8" height="8" fill="#1F4FD8"/>
+    <text class="ln" x="68" y="297">Separating what we confirmed from what we estimate</text>
+  </g>
+
+  <line class="rule" x1="40" y1="318" x2="860" y2="318"/>
+  <g opacity="0">
+    <animate attributeName="opacity" dur="12s" repeatCount="indefinite" keyTimes="0;.74;.78;.94;.98;1" values="0;0;1;1;0;0"/>
+    <rect x="44" y="336" width="8" height="8" fill="#2F5D50"/>
+    <text class="ln ok" x="68" y="345">Guide ready. Sources attached.</text>
+  </g>
+
+  <text class="note" x="40" y="384">Illustrative. On the live site, every line is a real event.</text>
+</svg>
