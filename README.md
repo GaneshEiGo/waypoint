@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img src="assets/live-app.svg" width="112" alt="Live app"></a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img src="assets/live-app.svg" width="232" alt="Open the live app"></a>
 </p>
 
 <p align="center">
@@ -17,17 +17,6 @@
   <img alt="Upstash" src="https://img.shields.io/badge/Upstash-storage-1D1D1F?style=flat-square&logo=upstash&logoColor=white">
   <img alt="Netlify" src="https://img.shields.io/badge/Netlify-hosted-1D1D1F?style=flat-square&logo=netlify&logoColor=white">
 </p>
-
-<p align="center">
-  <a href="#the-idea">The idea</a> ·
-  <a href="#watch-it-research">Watch it research</a> ·
-  <a href="#what-a-guide-looks-like">A guide</a> ·
-  <a href="#trust-made-visible">Trust</a> ·
-  <a href="#run-it">Run it</a>
-</p>
-
-> [!TIP]
-> **Short on time?** [Open the Google guide](https://jovial-faloodeh-fd8c22.netlify.app/g/google), then type `Linear` on the [home page](https://jovial-faloodeh-fd8c22.netlify.app). That is the whole product in about a minute.
 
 <p align="center"><b>Open a guide</b></p>
 <p align="center">
@@ -75,7 +64,7 @@ Type any app name or website. You get a one-page guide that opens with three num
   <img src="assets/forecast.svg" width="900" alt="Four setups on one log scale. Solid pixels are your hands-on time, hollow pixels are waiting on the provider.">
 </p>
 
-**Hard is not the same as slow.** Salesforce is heavy to set up but has no wait. Slack is quick to set up but slower to approve. Most docs blur the two. Waypoint keeps them apart.
+Hard is not the same as slow. Salesforce is heavy to set up but has no wait on the index. Slack is quick to set up but slower to approve. Most docs blur the two. Waypoint keeps them apart.
 
 <img src="assets/divider.svg" width="900" alt="">
 
@@ -104,7 +93,7 @@ flowchart LR
   J --> G
 ```
 
-**The model drafts. Code checks.** If a claim is marked "verified" but its quoted passage isn't in the page we fetched, it drops to "unverified" before the guide is saved.
+The model drafts. Code checks. If a claim is marked "verified" but its quoted passage isn't in the page we fetched, it drops to "unverified" before the guide is saved.
 
 </details>
 
@@ -133,6 +122,9 @@ WHAT WE CHECKED
 verified    Verification is required for sensitive scopes.
 sources     3 official pages, opened 2026-10-19
 ```
+
+<!-- Replace with a real screenshot, or delete this line:
+<img src="REPLACE_WITH_GUIDE_SCREENSHOT_URL" width="720" alt="A Waypoint guide showing the forecast, steps and evidence"> -->
 
 </details>
 
@@ -176,10 +168,11 @@ The four prepared guides were drafted by the agent, then corrected by hand again
 
 ## What I checked, corrected, and couldn't verify
 
-| App | What the agent got wrong | What I did |
-| --- | --- | --- |
-| Slack | Said approval is needed for all apps. The source shows review applies only to public distribution; private apps are instant. | Made the step conditional |
-| Salesforce | Said nothing about refresh tokens | Added a "watch out" about refresh-token scope |
+| App | Agent said | What the source showed | What I did |
+| --- | --- | --- | --- |
+| Slack | Approval is needed for all apps | Review applies only to public distribution; private apps are instant | Made the step conditional |
+| Salesforce | Nothing about refresh tokens | `[confirm against Salesforce docs]` | Added a "watch out" about refresh-token scope |
+| Google | `[verification wait the agent drafted]` | `[what Google's page says, with link]` | `[corrected to ___]` |
 
 **Could not verify:** Notion's review timeline. No official figure was found, so it stays "Not published".
 
@@ -268,7 +261,7 @@ assets/
   guide-github.svg  guide-slack.svg  guide-google.svg  guide-salesforce.svg    README visuals, not source
 ```
 
-Drafting runs on Groq, through the OpenAI SDK.
+Model: `[MODEL_NAME]` on Groq, through the OpenAI SDK.
 
 </details>
 
@@ -286,5 +279,5 @@ Drafting runs on Groq, through the OpenAI SDK.
 
 <p align="center">
   <a href="https://jovial-faloodeh-fd8c22.netlify.app"><b>Live app</b></a> · Built by <b>Ganesh Kaduri</b> for the Composio APM Integrations take-home.<br>
-  <a href="mailto:kaduriganesh7@gmail.com">kaduriganesh7@gmail.com</a> · <a href="https://github.com/GaneshEiGo">GitHub</a>
+  <a href="mailto:kaduriganesh7@gmail.com">kaduriganesh7@gmail.com</a> · <a href="https://github.com/GaneshEiGo">GitHub</a> · <a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
 </p>
