@@ -1,31 +1,9 @@
 import { Redis } from "@upstash/redis";
 import { Guide } from "./schema";
-import fs from "fs";
-import path from "path";
 
 let redis: Redis | null = null;
-const DATA_DIR = path.join(process.cwd(), '.data');
-const DATA_FILE = path.join(DATA_DIR, 'guides.json');
-
-// Ensure the .data directory exists
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR);
-}
-
-function getLocalGuides(): Record<string, Guide> {
-  if (!fs.existsSync(DATA_FILE)) return {};
-  try {
-    return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-  } catch {
-    return {};
-  }
-}
-
-function saveLocalGuide(guide: Guide) {
-  const guides = getLocalGuides();
-  guides[guide.slug] = guide;
-  fs.writeFileSync(DATA_FILE, JSON.stringify(guides, null, 2));
-}
+const memoryStore = new Map<string, Guide>();
+const aliases = new Map<string, string>();
 
 if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
   redis = new Redis({ url: process.env.UPSTASH_REDIS_REST_URL, token: process.env.UPSTASH_REDIS_REST_TOKEN });
@@ -36,7 +14,8 @@ export async function saveGuide(guide: Guide) {
     await redis.set(`guide:${guide.slug}`, JSON.stringify(guide), { ex: 60 * 60 * 24 * 30 });
     await redis.set(`alias:${guide.name.toLowerCase()}`, guide.slug);
   } else {
-    saveLocalGuide(guide);
+    memoryStore.set(guide.slug, guide);
+    aliases.set(guide.name.toLowerCase(), guide.slug);
   }
 }
 
@@ -47,9 +26,8 @@ export async function getGuide(slug: string): Promise<Guide | null> {
     const data = await redis.get(realSlug ? `guide:${realSlug}` : `guide:${cleanSlug}`);
     return data ? (typeof data === 'string' ? JSON.parse(data) : data) : null;
   } else {
-    const guides = getLocalGuides();
-    const found = Object.values(guides).find(g => g.slug === cleanSlug || g.name.toLowerCase() === cleanSlug);
-    return found || null;
+    const realSlug = aliases.get(cleanSlug);
+    return memoryStore.get(realSlug || cleanSlug) || null;
   }
 }
 
@@ -60,13 +38,14 @@ export async function getAllGuides(): Promise<Guide[]> {
       if (!keys || keys.length === 0) return [];
       const pipeline = redis.pipeline();
       keys.forEach(k => pipeline.get(k));
-      const results = await pipeline.exec();
+      const results = await pipeline.exec() as unknown[]; // FIX: Cast to unknown array
+      
       return results.map(r => typeof r === 'string' ? JSON.parse(r) : r).filter(Boolean) as Guide[];
     } catch (e) {
       return [];
     }
   } else {
-    return Object.values(getLocalGuides());
+    return Array.from(memoryStore.values());
   }
 }
 
