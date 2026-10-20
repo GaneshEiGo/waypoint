@@ -1,82 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="100%" height="240">
   <defs>
-    <!-- The sweeping laser mask for the text -->
-    <clipPath id="mask">
-      <rect x="0" y="0" width="0" height="300">
-        <animate attributeName="width" from="0" to="500" dur="1.5s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1" />
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0055FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0055FF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0055FF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="text-mask">
+      <rect x="0" y="0" width="0" height="240">
+        <animate attributeName="width" from="0" to="800" dur="1.2s" calcMode="spline" keySplines="0.16 1 0.3 1" fill="freeze" />
       </rect>
     </clipPath>
-    
-    <!-- Gradient for the glowing data packet -->
-    <radialGradient id="glow">
-      <stop offset="0%" stop-color="#1F4FD8" stop-opacity="1"/>
-      <stop offset="50%" stop-color="#1F4FD8" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#1F4FD8" stop-opacity="0"/>
-    </radialGradient>
   </defs>
+  <style>
+    .bg { fill: #FFFFFF; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif; font-weight: 700; font-size: 72px; fill: #000000; letter-spacing: -2.5px; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif; font-weight: 400; font-size: 18px; fill: #666666; letter-spacing: -0.5px; opacity: 0; animation: fadeUp 1s 1s forwards; }
+    .path { fill: none; stroke: #E5E5E5; stroke-width: 2; }
+    .particle { fill: #0055FF; }
+    .glow-rect { fill: url(#glow); opacity: 0.6; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
 
-  <!-- Background -->
-  <rect x="0" y="0" width="900" height="300" fill="#FAFAF8" stroke="#E6E4DF" stroke-width="1" rx="4"/>
+  <rect class="bg" width="100%" height="100%"/>
   
-  <!-- Cyber Grid Background -->
-  <path d="M 0 100 L 900 100 M 0 200 L 900 200 M 0 250 L 900 250 M 150 0 L 150 300 M 300 0 L 300 300 M 450 0 L 450 300 M 600 0 L 600 300 M 750 0 L 750 300" stroke="#E6E4DF" stroke-width="1" opacity="0.4"/>
-
-  <!-- Big Moving Text -->
-  <text x="50" y="120" font-family="Georgia, serif" font-size="80" fill="#111" clip-path="url(#mask)">Waypoint</text>
-  <text x="50" y="120" font-family="Georgia, serif" font-size="80" fill="none" stroke="#1F4FD8" stroke-width="1" clip-path="url(#mask)">Waypoint</text>
+  <g clip-path="url(#text-mask)">
+    <text class="title" x="40" y="110">Waypoint.</text>
+  </g>
   
-  <!-- Subtitle -->
-  <text x="52" y="155" font-family="Arial, sans-serif" font-size="20" fill="#6B6B6B">
-    Know what you’re walking into.
-    <animate attributeName="opacity" from="0" to="1" dur="1s" begin="1s" fill="freeze"/>
-  </text>
+  <text class="sub" x="40" y="150">Know the terrain before you build.</text>
 
-  <!-- The Timeline Path -->
-  <path id="route" d="M 50 230 C 150 230 200 160 300 160 S 450 250 550 210 S 700 140 850 160" fill="none" stroke="#1F4FD8" stroke-width="2" stroke-dasharray="4 8" opacity="0.4"/>
+  <path id="route" class="path" d="M 40 190 C 200 190, 250 130, 400 130 C 550 130, 600 190, 760 190" />
+  
+  <rect class="glow-rect" x="-100" y="100" width="200" height="100" opacity="0">
+    <animateMotion dur="4s" repeatCount="indefinite" rotate="auto"><mpath href="#route"/></animateMotion>
+  </rect>
 
-  <!-- Static Nodes -->
-  <g fill="#FAFAF8" stroke="#111" stroke-width="2">
-    <rect x="43" y="223" width="14" height="14"/>
-    <rect x="293" y="153" width="14" height="14"/>
-    <rect x="543" y="203" width="14" height="14"/>
-    <rect x="843" y="153" width="14" height="14"/>
-  </g>
-
-  <!-- Pulsing Radar Rings -->
-  <circle cx="50" cy="230" r="7" fill="none" stroke="#1F4FD8" stroke-width="2" opacity="0">
-    <animate attributeName="r" values="7;30" dur="2s" begin="0.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  <circle class="particle" r="3" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="4s" repeatCount="indefinite"/>
+    <animateMotion dur="4s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
   </circle>
-  <circle cx="300" cy="160" r="7" fill="none" stroke="#1F4FD8" stroke-width="2" opacity="0">
-    <animate attributeName="r" values="7;30" dur="2s" begin="1.2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="1;0" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+  <circle class="particle" r="2" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="4s" begin="1.3s" repeatCount="indefinite"/>
+    <animateMotion dur="4s" begin="1.3s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
   </circle>
-  <circle cx="550" cy="210" r="7" fill="none" stroke="#1F4FD8" stroke-width="2" opacity="0">
-    <animate attributeName="r" values="7;30" dur="2s" begin="1.9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="1;0" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+  <circle class="particle" r="4" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="4s" begin="2.6s" repeatCount="indefinite"/>
+    <animateMotion dur="4s" begin="2.6s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
   </circle>
-  <circle cx="850" cy="160" r="7" fill="none" stroke="#1F4FD8" stroke-width="2" opacity="0">
-    <animate attributeName="r" values="7;30" dur="2s" begin="2.6s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="1;0" dur="2s" begin="2.6s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Labels -->
-  <g font-family="Courier New, monospace" font-size="12" fill="#6B6B6B" text-anchor="middle" font-weight="bold">
-    <text x="50" y="265">MINUTES</text>
-    <text x="300" y="195">HOURS</text>
-    <text x="550" y="245">DAYS</text>
-    <text x="850" y="195">WEEKS</text>
-  </g>
-
-  <!-- The Traveler Data Packet -->
-  <g>
-    <animateMotion dur="4s" repeatCount="indefinite" rotate="auto" begin="1s">
-      <mpath href="#route"/>
-    </animateMotion>
-    <!-- Glow -->
-    <circle cx="0" cy="0" r="15" fill="url(#glow)" />
-    <!-- Core -->
-    <circle cx="0" cy="0" r="4" fill="#111" />
-    <circle cx="0" cy="0" r="2" fill="#FFF" />
-  </g>
 </svg>
