@@ -1,6 +1,6 @@
-<h1 align="center">Waypoint</h1>
-
-<p align="center"><i>Know what you're walking into.</i></p>
+<p align="center">
+  <img src="assets/hero.svg" width="900" alt="Waypoint. Know what you're walking into.">
+</p>
 
 <p align="center">
   Before you build an OAuth integration, see how long it takes, how long you'll wait, and where it can go wrong.
@@ -16,55 +16,61 @@
   <img alt="Source files" src="https://img.shields.io/badge/source_files-20-2F5D50?style=flat-square">
 </p>
 
+<p align="center"><b>Open a guide:</b></p>
 <p align="center">
-  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><b>Open the live demo</b></a>
-  &nbsp;·&nbsp;
-  <a href="#a-two-minute-tour">Two-minute tour</a>
-  &nbsp;·&nbsp;
-  <a href="#how-it-works">How it works</a>
-</p>
-
-<p align="center">
-  <img src="REPLACE_WITH_BANNER_IMAGE_URL" width="860" alt="Waypoint home page and a guide side by side">
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/github"><img alt="GitHub: easy" src="https://img.shields.io/badge/GitHub-Easy-2F5D50?style=for-the-badge"></a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/slack"><img alt="Slack: medium" src="https://img.shields.io/badge/Slack-Medium-B45309?style=for-the-badge"></a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/google"><img alt="Google: hard" src="https://img.shields.io/badge/Google-Hard-9A3412?style=for-the-badge"></a>
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app/g/salesforce"><img alt="Salesforce: hard" src="https://img.shields.io/badge/Salesforce-Hard-9A3412?style=for-the-badge"></a>
 </p>
 
 ---
 
 ## The idea
 
-Here are four real setups, side by side:
+An hour of setup and six weeks of waiting look identical from the outside. Waypoint shows you the difference before you start.
 
-```
-GitHub       Easy     5–10 min       No wait
-Slack        Medium   30–60 min      1–5 days
-Google       Hard     120–180 min    14–42 days
-Salesforce   Hard     60–120 min     No wait
-```
+Type any app name or website. You get a one-page guide that opens with three numbers: **your time**, **the wait**, and **the difficulty**. Then come the steps, the traps, who does what, and a record of what was actually checked.
 
-An hour of setup and six weeks of waiting look identical from the outside. Waypoint shows you the difference before you start. Type any app name or website and get a one-page guide that opens with three numbers: **your time**, **the wait**, and **the difficulty**. Then come the steps, the traps, who does what, and a record of what was actually checked.
+<p align="center">
+  <img src="assets/forecast.svg" width="900" alt="Four setups to scale: hands-on time and waiting time for GitHub, Slack, Google and Salesforce">
+</p>
 
-Four guides are ready. Any other app is researched live by an agent that shows its work and saves the guide at a link you can share.
+Hard is not the same as slow. Salesforce is heavy to set up but has no wait on the index. Slack is quick to set up but slower to approve. Most docs blur the two. Waypoint keeps them apart.
 
-### Hard is not the same as slow
+## Watch it research
 
-Effort and waiting are different problems, and most docs blur them.
+Four guides are ready. Any other app is researched live by an agent that shows its work, then saves the guide at a link you can share.
+
+<p align="center">
+  <img src="assets/trace.svg" width="900" alt="A search row types an app name, then research lines appear one by one until the guide is ready">
+</p>
+
+<details>
+<summary><b>The seven stages, as a diagram</b></summary>
 
 ```mermaid
-quadrantChart
-    title Where the four apps sit (illustrative, from the guides' ranges)
-    x-axis Short wait --> Long wait
-    y-axis Light setup --> Heavy setup
-    quadrant-1 Heavy and slow
-    quadrant-2 Heavy but fast
-    quadrant-3 Light and fast
-    quadrant-4 Light but slow
-    GitHub: [0.08, 0.10]
-    Slack: [0.55, 0.30]
-    Salesforce: [0.08, 0.60]
-    Google: [0.90, 0.85]
+flowchart LR
+  A[Type an app] --> B{Guide saved?}
+  B -- yes --> G[Open guide]
+  B -- no --> C[Identify the company]
+  C --> D[Search official docs]
+  D --> E[Read pages]
+  E --> F[Check the portal]
+  F --> H[Draft the guide]
+  H --> I[Verify in code]
+  I --> J[Save and share]
+  J --> G
 ```
 
+The model drafts. Code checks. If a claim is marked "verified" but its quoted passage isn't in the page we fetched, it drops to "unverified" before the guide is saved.
+
+</details>
+
 ## What a guide looks like
+
+<details open>
+<summary><b>Google, as a sample</b></summary>
 
 ```
 Google                              Cloud Console and verification
@@ -85,6 +91,10 @@ verified    Verification is required for sensitive scopes.
 sources     3 official pages, opened 2026-10-19
 ```
 
+<img src="REPLACE_WITH_GUIDE_SCREENSHOT_URL" width="720" alt="A Waypoint guide showing the forecast, steps and evidence">
+
+</details>
+
 Every step says who does it: the agent can help, it's your turn, or you're waiting on the provider.
 
 ## A two-minute tour
@@ -95,7 +105,8 @@ Every step says who does it: the agent can help, it's your turn, or you're waiti
 4. **Type a made-up name.** You get an honest "we couldn't find it", not an invented guide.
 5. **Copy the link and open it in a private window.** The guide is saved.
 
-## Built against the brief
+<details>
+<summary><b>Built against the brief</b></summary>
 
 | The brief asked for | Where it lives |
 | --- | --- |
@@ -106,23 +117,7 @@ Every step says who does it: the agent can help, it's your turn, or you're waiti
 | What was tested, and what is uncertain | "What we checked", with sources and dates |
 | Something shareable | Every guide has its own link |
 
-## How it works
-
-```mermaid
-flowchart LR
-  A[Type an app] --> B{Guide saved?}
-  B -- yes --> G[Open guide]
-  B -- no --> C[Identify the company]
-  C --> D[Search official docs]
-  D --> E[Read pages]
-  E --> F[Check the portal]
-  F --> H[Draft the guide]
-  H --> I[Verify in code]
-  I --> J[Save and share]
-  J --> G
-```
-
-The model drafts. Code checks. If a claim is marked "verified" but the passage it quotes isn't in the page we fetched, it drops to "unverified" before the guide is saved.
+</details>
 
 ## Trust, made visible
 
@@ -153,7 +148,6 @@ The four prepared guides were drafted by the agent, then corrected by hand again
 | Three numbers first | A long tutorial | People decide whether to start before they read the steps |
 | Ranges and "Not published" | One confident estimate | Providers rarely publish review times, and false precision costs trust |
 | Four guides plus live research | 100 thin guides | Four different shapes prove the range, and the live path proves it scales |
-| A small database | No storage | Live guides need links that survive a reload |
 | Code that checks the model | Trusting the draft | A passage match makes "verified" something you can test |
 
 ## What I'd build next
@@ -204,7 +198,7 @@ The Upstash pair is optional locally. Without it, guides are saved to a local fi
 </details>
 
 <details>
-<summary><b>Repo map: 20 files, nothing decorative</b></summary>
+<summary><b>Repo map: 20 source files, nothing decorative</b></summary>
 
 ```
 app/
@@ -225,6 +219,8 @@ lib/
   tools.ts                search, safe fetch, probes
   prompts.ts              all agent instructions
   store.ts                saved guides
+assets/
+  hero.svg  forecast.svg  trace.svg    README visuals, not source
 ```
 
 Plus `package.json`, `tsconfig.json`, `next.config.ts`, `.env.example` and this README. Model: `[MODEL_NAME]` on Groq, through the OpenAI SDK.
