@@ -2,17 +2,17 @@
 
 <p align="center">
   <b>Know what you're walking into.</b><br>
-  OAuth setup guides for agent builders. How long it takes, how long you'll wait, what to watch for.
+  OAuth setup guides for agent builders: how long it takes, how long you'll wait, what to watch for.
 </p>
 
 <p align="center">
-  <a href="https://YOUR-APP.vercel.app"><img alt="Live demo" src="https://img.shields.io/badge/Live_demo-open-1F4FD8?style=flat-square"></a>
-  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-15-111111?style=flat-square&logo=nextdotjs&logoColor=white">
+  <a href="https://jovial-faloodeh-fd8c22.netlify.app"><img alt="Live demo" src="https://img.shields.io/badge/Live_demo-open-1F4FD8?style=flat-square"></a>
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-App_Router-111111?style=flat-square&logo=nextdotjs&logoColor=white">
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-strict-111111?style=flat-square&logo=typescript&logoColor=white">
-  <img alt="Claude" src="https://img.shields.io/badge/Claude-drafting-111111?style=flat-square&logo=anthropic&logoColor=white">
+  <img alt="Groq" src="https://img.shields.io/badge/Groq-drafting-111111?style=flat-square">
   <img alt="Upstash" src="https://img.shields.io/badge/Upstash-storage-111111?style=flat-square&logo=upstash&logoColor=white">
-  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-hosted-111111?style=flat-square&logo=vercel&logoColor=white">
-  <img alt="Files" src="https://img.shields.io/badge/source_files-19-2F5D50?style=flat-square">
+  <img alt="Netlify" src="https://img.shields.io/badge/Netlify-hosted-111111?style=flat-square&logo=netlify&logoColor=white">
+  <img alt="Files" src="https://img.shields.io/badge/source_files-20-2F5D50?style=flat-square">
 </p>
 
 <p align="center">
@@ -23,41 +23,43 @@
 
 ## The 30-second version
 
-Connecting an app to an agent often means creating your own OAuth app, and sometimes waiting for approval. One hour of setup and six weeks of waiting look identical from the outside.
+When you connect an app to an agent, you often have to create your own OAuth app, and sometimes wait for approval. An hour of setup and six weeks of waiting look identical from the outside.
 
-Waypoint tells you which one you're facing before you start. Type any app. Get a one-page guide that opens with three numbers:
+Waypoint tells you which one you're facing before you start. Type any app name or website. You get a one-page guide that opens with three things:
 
 | Your time | Waiting | Difficulty |
 | --- | --- | --- |
-| hands-on work, as a range | provider approval, or "Not published" | Easy, Medium, Hard, or It depends |
+| Hands-on work, as a range | Provider approval, or "Not published" | Easy, medium, hard, or it depends |
 
-Then come the steps, the traps, who does what (agent or you), and a plain record of what was actually checked.
+Then come the steps, the traps, who does what (agent, you, or the provider), and a plain record of what was actually checked.
+
+Four guides are ready. Any other app is researched live by an agent that shows its work and saves the guide at a link you can share.
 
 ## Try it
 
-**Live:** https://YOUR-APP.vercel.app
+**Live:** https://jovial-faloodeh-fd8c22.netlify.app
 
-| Try this | You'll see |
+| Try this | What you'll see |
 | --- | --- |
-| [GitHub](https://YOUR-APP.vercel.app/g/github) | The fast case |
-| [Slack](https://YOUR-APP.vercel.app/g/slack) | Quick setup, review only for public listing |
-| [Google](https://YOUR-APP.vercel.app/g/google) | Requirements that depend on the access you ask for |
-| [Salesforce](https://YOUR-APP.vercel.app/g/salesforce) | Many moving parts, little waiting |
-| Type `Linear` or `HubSpot` | A real research run, then a saved link |
-| Type a made-up name | An honest "we couldn't find it" instead of a made-up guide |
+| [GitHub](https://jovial-faloodeh-fd8c22.netlify.app/g/github) | The fast case: minutes, no wait |
+| [Slack](https://jovial-faloodeh-fd8c22.netlify.app/g/slack) | Quick setup, with a review wait for public distribution |
+| [Google](https://jovial-faloodeh-fd8c22.netlify.app/g/google) | Weeks of verification, depending on the scopes you ask for |
+| [Salesforce](https://jovial-faloodeh-fd8c22.netlify.app/g/salesforce) | Many moving parts, little waiting |
+| Type `Linear` or `HubSpot` | A live research run, then a saved link |
+| Type a made-up name | An honest "we couldn't find it", not an invented guide |
 
 <p align="center">
-  <img src="REPLACE_WITH_GUIDE_SCREENSHOT_URL" width="720" alt="A Waypoint guide: forecast, steps, evidence">
+  <img src="REPLACE_WITH_GUIDE_SCREENSHOT_URL" width="720" alt="A Waypoint guide showing the forecast, steps and evidence">
 </p>
 
 ## What makes it different
 
 - **Forecast first.** Time, wait and difficulty come before any content.
-- **It shows its work.** The agent's search-and-read trail travels with the guide. Share a guide, share the proof.
+- **It shows its work.** The agent's search-and-read trail travels with the guide.
 - **Ranges, not guesses.** "1 to 5 days" is a forecast. If the provider publishes nothing, it says "Not published".
-- **Who does what.** Every step is marked: Agent can help, Your turn, or Waiting on provider.
+- **Who does what.** Every step is marked: the agent can help, it's your turn, or you're waiting on the provider.
 
-## How it works
+## How a guide is made
 
 ```mermaid
 flowchart LR
@@ -66,39 +68,36 @@ flowchart LR
   B -- no --> C[Identify the company]
   C --> D[Search official docs]
   D --> E[Read pages]
-  E --> F[Run public checks]
+  E --> F[Check the developer portal]
   F --> H[Draft the guide]
   H --> I[Verify in code]
   I --> J[Save and share link]
   J --> G
 ```
 
-The model drafts. Code checks. Every source in a guide was really fetched, every "Verified" claim must carry an excerpt that appears in the page text, and anything that fails drops to "Unverified" before saving.
+The model drafts. Code checks. If a claim is marked "verified" but the passage it quotes isn't in the fetched page, it drops to "unverified" before the guide is saved.
 
 ## How much to trust a guide
 
-| Evidence | Meaning |
+| Label | Meaning |
 | --- | --- |
 | Verified | An official page we opened says it |
 | Observed | We ran a public check and recorded the result |
 | Inferred | From forums or reasoning, and labelled as such |
 | Unverified | We couldn't establish it, and we say where to look |
 
-Every guide also states how far we got: **Read** the docs, **Opened** the portal pages, **Probed** public OAuth metadata, or **Attempted** a real setup.
-
-The four reviewed guides were drafted by the agent and corrected by hand. Highest level reached: `[GitHub: ___ · Slack: ___ · Google: ___ · Salesforce: ___]`
+The four prepared guides were drafted by the agent, then corrected by hand against the sources.
 
 ## What I checked, corrected, and couldn't verify
 
-| App | Agent said | Reality | What I did |
+| App | Agent said | What the source showed | What I did |
 | --- | --- | --- | --- |
-| `[app]` | `[claim]` | `[what the source or real attempt showed]` | `[corrected / kept / marked Unverified]` |
-| `[app]` | `[claim]` | `[...]` | `[...]` |
-| `[app]` | `[claim]` | `[...]` | `[...]` |
-| `[app]` | `[claim]` | `[...]` | `[...]` |
-| `[app]` | `[claim]` | `[...]` | `[...]` |
+| Google | `[verification wait the agent drafted]` | `[what Google's page says, with link]` | `[corrected to ___, basis: published or estimated]` |
+| Slack | Approval is needed for all apps | Review only applies to public distribution; private apps are instant | Made the step conditional ("if distributing publicly") |
+| Salesforce | Nothing about refresh tokens | `[confirm against Salesforce docs]` | Added a "watch out" about the refresh-token scope |
+| `[app]` | `[claim]` | `[reality]` | `[what changed]` |
 
-**Could not verify:** `[for example, a review timeline the provider doesn't publish]`
+**Could not verify:** Notion's review timeline. No official figure was found, so it stays "Not published".
 
 ## Run it locally
 
@@ -111,7 +110,7 @@ Needs Node 20 or newer.
 git clone https://github.com/YOUR-USERNAME/waypoint.git
 cd waypoint
 npm install
-cp .env.example .env.local   # then fill in the values
+cp .env.example .env.local   # then add your keys
 npm run dev
 ```
 
@@ -119,73 +118,82 @@ Open http://localhost:3000
 
 | Variable | What it's for |
 | --- | --- |
-| `ANTHROPIC_API_KEY` | Drafting guides |
-| `MODEL_NAME` | Which Claude model to use |
-| `TAVILY_API_KEY` | Web search and page text |
-| `UPSTASH_REDIS_REST_URL` | Saved guides and rate limits |
+| `GROQ_API_KEY` | Drafting guides |
+| `TAVILY_API_KEY` | Searching for official docs |
+| `UPSTASH_REDIS_REST_URL` | Saving guides at permanent links |
 | `UPSTASH_REDIS_REST_TOKEN` | Same |
-| `NEXT_PUBLIC_APP_URL` | Used for share links and previews |
 
-Upstash Redis has a free tier and installs from the Vercel Marketplace. Never commit `.env.local`.
+The Upstash pair is optional locally. Without it, guides are saved to a local file. Never commit `.env.local`.
+
+</details>
+
+<details>
+<summary><b>Deploying to Netlify</b></summary>
+
+1. Import the repo into Netlify.
+2. Add all four variables above under Site settings, then Environment variables.
+3. Set the two Upstash variables for any real deployment. On Netlify, the local-file fallback does not keep guides between requests, so share links would stop working.
+4. After deploying, research an app, reload its guide, and open the link in a private window to confirm it saved.
 
 </details>
 
 ## What's inside
 
 <details>
-<summary><b>19 files, nothing decorative</b></summary>
+<summary><b>20 files, nothing decorative</b></summary>
 
 ```
 app/
-  layout.tsx              fonts, metadata, shell
-  globals.css             design tokens and styles
+  layout.tsx              fonts and metadata
+  globals.css             design tokens and all styles
   page.tsx                the index
-  g/[slug]/page.tsx       guide or live research
-  g/[slug]/opengraph-image.tsx   link preview card
-  api/generate/route.ts   validate, rate limit, stream, save
+  g/[slug]/page.tsx       a guide, or live research
+  api/generate/route.ts   validate, run the agent, stream, save
 components/
-  Search.tsx              search row and "/" shortcut
+  IndexList.tsx           the list of guides
+  Search.tsx              search row and the / shortcut
   Guide.tsx               the guide view
   Trace.tsx               live timeline and collapsed record
 lib/
-  schema.ts               the Guide schema
-  prompts.ts              all agent instructions
-  agent.ts                the research stages
-  tools.ts                search, safe fetch, public checks
-  store.ts                saved guides and limits
+  schema.ts               the guide schema and its rules
   seeded.ts               the four reviewed guides
+  agent.ts                the seven stages
+  tools.ts                search, safe fetch, probes
+  prompts.ts              all agent instructions
+  store.ts                saved guides
 ```
 
-Plus `package.json`, `tsconfig.json`, `.env.example` and this README. Six dependencies: next, react, react-dom, zod, @upstash/redis, @anthropic-ai/sdk.
+Plus `package.json`, `tsconfig.json`, `next.config.ts`, `.env.example` and this README.
 
 </details>
 
 ## Decisions worth knowing
 
-- **Four guides, not 100.** Four different shapes (instant, review wait, weeks, complex but fast) prove the approach better than a hundred thin ones.
-- **Live generation is real research.** No hidden fallback. If search is down, the app says so.
-- **A small database.** Live guides need links that survive a refresh and open for someone else.
-- **One agent, clear stages.** Easier to check than a swarm.
+- **Four guides, not 100.** Four different shapes (instant, review wait, weeks, complex but fast) show the approach better than a hundred thin ones.
+- **Live generation is real research.** There is no hidden fallback guide. If search fails, the app says so.
+- **Saved guides.** Live guides need links that survive a reload and open for someone else, so they're stored in Redis.
+- **One agent, seven clear stages.** Easier to check than a swarm.
 - **Plain CSS.** One file, no framework, fewer moving parts.
+- **Model:** `[MODEL_NAME]` on Groq, through the OpenAI SDK, for fast and reliable JSON.
 
 ## Limits
 
 - No real approvals were submitted, and nothing here promises one.
 - Live guides depend on public documentation. If it's thin or behind a login, the guide is marked partial.
 - Many providers don't publish review times. Those show as "Not published", not a number.
-- Provider rules change. Every guide is dated, with a "Check again" link after 30 days.
+- Provider rules change. Every guide shows the date its sources were opened.
+- Research runs on serverless functions with time limits. Very slow providers may time out.
 
 ## Safety
 
-- Keys stay on the server. Nothing secret is stored or asked for.
-- Fetching is https only, blocks private addresses (re-checked on redirects), and is capped on size, time and count.
-- Web pages are treated as untrusted text and never as instructions.
+- Keys stay on the server. The app never asks for secrets or passwords.
+- Fetching is https only, blocks private addresses, and is capped on size, time and count.
+- Web pages are treated as untrusted text, never as instructions.
 - Guide content renders as plain text.
-- Rate limited per visitor.
 
 ---
 
 <p align="center">
-  Built by <b>Kaduri Ganesh</b> for the Composio APM Integrations take-home.<br>
+  Built by <b>Ganesh</b> for the Composio APM Integrations take-home.<br>
   <a href="mailto:YOUR-EMAIL">YOUR-EMAIL</a> · <a href="https://www.linkedin.com/in/YOUR-HANDLE">LinkedIn</a>
 </p>
