@@ -22,17 +22,18 @@ function HeaderIcon({ domain, name }: { domain: string; name: string }) {
   if (error) {
     return (
       <div style={{ width: '48px', height: '48px', borderRadius: '8px', border: '1px solid var(--hairline)', background: 'var(--ink)', color: 'var(--bg)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-serif)', fontSize: '24px' }}>
-        {name.charAt(0)}
+        {name.charAt(0).toUpperCase()}
       </div>
     );
   }
 
   return (
     <img 
-      src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`} 
+      src={`https://logo.debounce.com/${domain}`} 
       alt={name} 
       style={{ width: '48px', height: '48px', borderRadius: '8px', border: '1px solid var(--hairline)', padding: '4px', background: '#ffffff' }}
       onError={() => setError(true)}
+      suppressHydrationWarning
     />
   );
 }
@@ -100,7 +101,7 @@ export default function GuideView({ guide }: { guide: Guide }) {
     try {
       const html2pdf = (await import('html2pdf.js')).default;
       const opt = {
-        margin: [0.5, 0.5, 0.5, 0.5],
+        margin: [0.5, 0.5, 0.5, 0.5] as [number, number, number, number], // FIX: TypeScript tuple
         filename: `Waypoint_${guide.name}_Guide.pdf`,
         image: { type: 'jpeg', quality: 1 },
         html2canvas: { scale: 2, useCORS: true },
