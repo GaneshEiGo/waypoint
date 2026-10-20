@@ -1,214 +1,178 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="100%" height="260" role="img" aria-labelledby="heroTitle heroDesc">
-  <title id="heroTitle">Waypoint</title>
-  <desc id="heroDesc">Know what you are walking into. Minimal Apple-style interface where a smooth stream of pixels travels from minutes to weeks.</desc>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="100%" height="320" role="img" aria-label="Waypoint: Know what you're walking into.">
   <defs>
-    <linearGradient id="appleCanvas" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FBFBFD"/>
-      <stop offset="100%" stop-color="#F5F5F7"/>
-    </linearGradient>
-
-    <linearGradient id="routeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0066CC"/>
-      <stop offset="65%" stop-color="#0066CC"/>
-      <stop offset="100%" stop-color="#1D1D1F"/>
-    </linearGradient>
-
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#1D1D1F" flood-opacity="0.05"/>
-    </filter>
-
-    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="0.9" fill="#D2D2D7" opacity="0.7"/>
+    <!-- Subtle Apple-style tactile pixel matrix background -->
+    <pattern id="pixel-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect x="7" y="7" width="1.5" height="1.5" fill="#E6E4DF" />
     </pattern>
+    <!-- Active blue pixel cluster for the traveler -->
+    <g id="pixel-cluster">
+      <rect x="-4" y="-4" width="8" height="8" rx="1.5" fill="#1F4FD8" />
+      <rect x="-2" y="-2" width="4" height="4" fill="#FAFAF8" />
+      <rect x="-11" y="-1.5" width="3" height="3" fill="#1F4FD8" opacity="0.65" />
+      <rect x="-17" y="-1" width="2" height="2" fill="#1F4FD8" opacity="0.35" />
+      <rect x="-22" y="-1" width="1.5" height="1.5" fill="#1F4FD8" opacity="0.15" />
+    </g>
   </defs>
 
-  <style>
-    .font-display {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
-    }
-    .font-sans {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
-    }
-    .font-mono {
-      font-family: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace;
-    }
+  <!-- Outer Canvas (#FAFAF8 warm paper, #E6E4DF 1px hairline, 4px radius) -->
+  <rect x="0.5" y="0.5" width="899" height="319" rx="4" fill="#FAFAF8" stroke="#E6E4DF" stroke-width="1"/>
+  <rect x="1" y="1" width="898" height="318" fill="url(#pixel-grid)" opacity="0.65"/>
 
-    /* Smooth 60fps GPU Wordmark & Tagline Entrance */
-    .brand-group {
-      animation: floatBrand 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-    }
-    @keyframes floatBrand {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-2.5px); }
-    }
-
-    /* Animated 2x2 Apple Pixel Cluster */
-    .px-1 { animation: pxPulse 2.4s ease-in-out infinite 0.0s; }
-    .px-2 { animation: pxPulse 2.4s ease-in-out infinite 0.6s; }
-    .px-3 { animation: pxPulse 2.4s ease-in-out infinite 1.2s; }
-    .px-4 { animation: pxPulse 2.4s ease-in-out infinite 1.8s; }
-    @keyframes pxPulse {
-      0%, 100% { opacity: 0.25; transform: scale(0.92); }
-      50% { opacity: 1; transform: scale(1); }
-    }
-
-    /* Flowing Dashed Route */
-    .route-dash {
-      stroke-dasharray: 4 8;
-      animation: dashFlow 1.2s linear infinite;
-    }
-    @keyframes dashFlow {
-      to { stroke-dashoffset: -24; }
-    }
-
-    /* Synchronized 6s Node Callout Pills & Halos */
-    .halo-1 { transform-box: fill-box; transform-origin: center; animation: haloPing 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 0.0s; }
-    .halo-2 { transform-box: fill-box; transform-origin: center; animation: haloPing 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 1.8s; }
-    .halo-3 { transform-box: fill-box; transform-origin: center; animation: haloPing 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 3.7s; }
-    .halo-4 { transform-box: fill-box; transform-origin: center; animation: haloPing 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 5.5s; }
-
-    @keyframes haloPing {
-      0% { opacity: 0.85; transform: scale(0.8); }
-      25%, 100% { opacity: 0; transform: scale(2.3); }
-    }
-
-    .pill-1 { animation: pillLift 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 0.0s; }
-    .pill-2 { animation: pillLift 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 1.8s; }
-    .pill-3 { animation: pillLift 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 3.7s; }
-    .pill-4 { animation: pillLift 6s cubic-bezier(0.22, 1, 0.36, 1) infinite 5.5s; }
-
-    @keyframes pillLift {
-      0%, 22% { transform: translateY(-4px); }
-      35%, 100% { transform: translateY(0px); }
-    }
-
-    /* Dynamic Island Stage Text Synced to 6s Route */
-    .stage-1 { animation: stageShow1 6s ease-in-out infinite; }
-    .stage-2 { animation: stageShow2 6s ease-in-out infinite; }
-    .stage-3 { animation: stageShow3 6s ease-in-out infinite; }
-    .stage-4 { animation: stageShow4 6s ease-in-out infinite; }
-
-    @keyframes stageShow1 { 0%, 22% { opacity: 1; } 26%, 96% { opacity: 0; } 100% { opacity: 1; } }
-    @keyframes stageShow2 { 0%, 22% { opacity: 0; } 26%, 54% { opacity: 1; } 58%, 100% { opacity: 0; } }
-    @keyframes stageShow3 { 0%, 54% { opacity: 0; } 58%, 84% { opacity: 1; } 88%, 100% { opacity: 0; } }
-    @keyframes stageShow4 { 0%, 84% { opacity: 0; } 88%, 96% { opacity: 1; } 100% { opacity: 0; } }
-
-    /* Ambient Floating Micro-Pixels */
-    .float-a { animation: floatPx 4.5s ease-in-out infinite; }
-    .float-b { animation: floatPx 5.5s ease-in-out infinite 1.5s; }
-    .float-c { animation: floatPx 3.8s ease-in-out infinite 0.8s; }
-    @keyframes floatPx {
-      0%, 100% { transform: translateY(0px); opacity: 0.2; }
-      50% { transform: translateY(-8px); opacity: 0.55; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; }
-    }
-  </style>
-
-  <!-- Outer Cupertino Squircle Canvas -->
-  <rect x="1" y="1" width="898" height="258" rx="20" fill="url(#appleCanvas)" stroke="#E5E5EA" stroke-width="1.5"/>
-  <rect x="1" y="1" width="898" height="258" rx="20" fill="url(#dotGrid)"/>
-
-  <!-- Ambient Floating Micro-Pixels -->
-  <rect class="float-a" x="490" y="52" width="4" height="4" rx="1" fill="#0066CC"/>
-  <rect class="float-b" x="610" y="84" width="3.5" height="3.5" rx="1" fill="#1D1D1F"/>
-  <rect class="float-c" x="745" y="68" width="4" height="4" rx="1" fill="#0066CC"/>
-
-  <!-- Top Right: iOS Dynamic Island Live Telemetry Pill -->
-  <g transform="translate(646, 22)" filter="url(#cardShadow)">
-    <rect width="214" height="30" rx="15" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="1"/>
-    <!-- 2x2 Animated Pixel Grid -->
-    <rect class="px-1" x="14" y="10" width="4" height="4" rx="1" fill="#0066CC"/>
-    <rect class="px-2" x="19.5" y="10" width="4" height="4" rx="1" fill="#0066CC"/>
-    <rect class="px-3" x="14" y="15.5" width="4" height="4" rx="1" fill="#0066CC"/>
-    <rect class="px-4" x="19.5" y="15.5" width="4" height="4" rx="1" fill="#0066CC"/>
-
-    <text class="font-mono stage-1" x="34" y="19" font-size="10.5" font-weight="600" fill="#1D1D1F">STAGE 01 &#183; 5&#8211;10 MIN SETUP</text>
-    <text class="font-mono stage-2" x="34" y="19" font-size="10.5" font-weight="600" fill="#0066CC" opacity="0">STAGE 02 &#183; 1&#8211;3 HR CONFIG</text>
-    <text class="font-mono stage-3" x="34" y="19" font-size="10.5" font-weight="600" fill="#B45309" opacity="0">STAGE 03 &#183; 1&#8211;5 DAY REVIEW</text>
-    <text class="font-mono stage-4" x="34" y="19" font-size="10.5" font-weight="600" fill="#9A3412" opacity="0">STAGE 04 &#183; 2&#8211;6 WK AUDIT</text>
-
-    <circle cx="198" cy="15" r="3.5" fill="#34C759"/>
+  <!-- Top Telemetry Header Bar -->
+  <line x1="0" y1="42" x2="900" y2="42" stroke="#E6E4DF" stroke-width="1"/>
+  <g font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace" font-size="11" fill="#6B6B6B" letter-spacing="0.8">
+    <rect x="40" y="16" width="6" height="6" fill="#2F5D50">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="54" y="25" font-weight="500" fill="#111111">WAYPOINT.SYS</text>
+    <text x="155" y="25" fill="#9A9A9A">//</text>
+    <text x="175" y="25">OAUTH INTEGRATION FORECASTER</text>
+    <text x="860" y="25" text-anchor="end" fill="#1F4FD8" font-weight="500">[ 4 SEEDED · LIVE AGENT ]</text>
   </g>
 
-  <!-- Single Unbroken Apple Wordmark + Tagline -->
-  <g class="brand-group">
-    <text class="font-display" x="52" y="84" font-size="56" font-weight="700" fill="#1D1D1F" letter-spacing="-1.8">Waypoint</text>
-    <!-- Precision Pixel Square Period -->
-    <rect x="292" y="72" width="9" height="9" rx="2.5" fill="#0066CC"/>
-  </g>
-
-  <text class="font-sans" x="54" y="114" font-size="17" font-weight="400" fill="#86868B" letter-spacing="-0.2">
-    Know what you&#8217;re walking into.
-  </text>
-
-  <!-- Route Base Track & Animated Pixel Dash -->
-  <path d="M 76 196 C 205 196, 225 156, 336 156 S 515 212, 616 184 S 765 152, 824 156" fill="none" stroke="#E5E5EA" stroke-width="3.5" stroke-linecap="round"/>
-  <path class="route-dash" d="M 76 196 C 205 196, 225 156, 336 156 S 515 212, 616 184 S 765 152, 824 156" fill="none" stroke="url(#routeGrad)" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- NODE 1: minutes -->
-  <g transform="translate(76, 196)">
-    <rect class="halo-1" x="-10" y="-10" width="20" height="20" rx="6" fill="none" stroke="#0066CC" stroke-width="1.5"/>
-    <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#FFFFFF" stroke="#1D1D1F" stroke-width="2"/>
-    <rect x="-2" y="-2" width="4" height="4" rx="1" fill="#0066CC"/>
-    <g class="pill-1">
-      <rect x="-29" y="-38" width="58" height="20" rx="10" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="1" filter="url(#cardShadow)"/>
-      <text class="font-mono" x="0" y="-24.5" text-anchor="middle" font-size="10" font-weight="600" fill="#0066CC">5&#8211;10m</text>
+  <!-- Kinetic Editorial Title: "Waypoint" + Pixel Assembly -->
+  <g transform="translate(40, 108)">
+    <!-- Decorative pixel matrix indicator left of title -->
+    <g fill="#1F4FD8">
+      <rect x="0" y="-42" width="4" height="4" opacity="0">
+        <animate attributeName="opacity" values="0;1;0.25;1" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="6" y="-42" width="4" height="4" opacity="0.3">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="0" y="-36" width="4" height="4" opacity="0.6"/>
+      <rect x="6" y="-36" width="4" height="4" fill="#111111"/>
     </g>
-    <text class="font-mono" x="0" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="#86868B">minutes</text>
-  </g>
 
-  <!-- NODE 2: hours -->
-  <g transform="translate(336, 156)">
-    <rect class="halo-2" x="-10" y="-10" width="20" height="20" rx="6" fill="none" stroke="#0066CC" stroke-width="1.5"/>
-    <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#FFFFFF" stroke="#1D1D1F" stroke-width="2"/>
-    <rect x="-2" y="-2" width="4" height="4" rx="1" fill="#0066CC"/>
-    <g class="pill-2">
-      <rect x="-29" y="-38" width="58" height="20" rx="10" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="1" filter="url(#cardShadow)"/>
-      <text class="font-mono" x="0" y="-24.5" text-anchor="middle" font-size="10" font-weight="600" fill="#1D1D1F">1&#8211;3h</text>
+    <!-- Smooth Apple-curve slide & fade for Title -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 10" to="0 0" dur="0.9s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+      <text x="20" y="0" font-family="'Instrument Serif', 'Iowan Old Style', 'Apple Garamond', 'New York', Georgia, serif" font-size="64" font-weight="400" fill="#111111" letter-spacing="-1.2">
+        Waypoint
+        <animate attributeName="opacity" from="0" to="1" dur="0.7s" fill="freeze"/>
+      </text>
+      
+      <!-- Live Kinetic Subtitle Pill -->
+      <g transform="translate(272, -30)">
+        <rect x="0" y="0" width="318" height="26" rx="4" fill="#FFFFFF" stroke="#E6E4DF" stroke-width="1"/>
+        <rect x="9" y="9" width="8" height="8" rx="1" fill="#1F4FD8">
+          <animateTransform attributeName="transform" type="rotate" from="0 13 13" to="90 13 13" dur="3s" repeatCount="indefinite" calcMode="discrete"/>
+        </rect>
+        <text x="25" y="17" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif" font-size="13.5" font-weight="500" fill="#111111">
+          Know what you’re walking into.
+        </text>
+      </g>
     </g>
-    <text class="font-mono" x="0" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="#86868B">hours</text>
+
+    <text x="22" y="28" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif" font-size="15" fill="#6B6B6B" letter-spacing="-0.1">
+      An hour of hands-on setup and six weeks of provider review look identical from the outside. Not here.
+    </text>
   </g>
 
-  <!-- NODE 3: days -->
-  <g transform="translate(616, 184)">
-    <rect class="halo-3" x="-10" y="-10" width="20" height="20" rx="6" fill="none" stroke="#B45309" stroke-width="1.5"/>
-    <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#FFFFFF" stroke="#1D1D1F" stroke-width="2"/>
-    <rect x="-2" y="-2" width="4" height="4" rx="1" fill="#B45309"/>
-    <g class="pill-3">
-      <rect x="-29" y="-38" width="58" height="20" rx="10" fill="#FFFFFF" stroke="#E5E5EA" stroke-width="1" filter="url(#cardShadow)"/>
-      <text class="font-mono" x="0" y="-24.5" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309">1&#8211;5d</text>
-    </g>
-    <text class="font-mono" x="0" y="28" text-anchor="middle" font-size="12" font-weight="500" fill="#86868B">days</text>
+  <!-- Divider Hairline before Interactive Telemetry Track -->
+  <line x1="40" y1="158" x2="860" y2="158" stroke="#E6E4DF" stroke-width="1"/>
+
+  <!-- Precision Ruler Ticks -->
+  <g stroke="#E6E4DF" stroke-width="1">
+    <line x1="90" y1="158" x2="90" y2="265" stroke-dasharray="2 3"/>
+    <line x1="330" y1="158" x2="330" y2="265" stroke-dasharray="2 3"/>
+    <line x1="590" y1="158" x2="590" y2="265" stroke-dasharray="2 3"/>
+    <line x1="810" y1="158" x2="810" y2="265" stroke-dasharray="2 3"/>
   </g>
 
-  <!-- NODE 4: weeks -->
-  <g transform="translate(824, 156)">
-    <rect class="halo-4" x="-10" y="-10" width="20" height="20" rx="6" fill="none" stroke="#1D1D1F" stroke-width="1.5"/>
-    <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#1D1D1F" stroke="#1D1D1F" stroke-width="2"/>
-    <rect x="-2" y="-2" width="4" height="4" rx="1" fill="#FFFFFF"/>
-    <g class="pill-4">
-      <rect x="-31" y="-38" width="62" height="20" rx="10" fill="#1D1D1F" filter="url(#cardShadow)"/>
-      <text class="font-mono" x="0" y="-24.5" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">2&#8211;6w</text>
-    </g>
-    <text class="font-mono" x="0" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="#1D1D1F">weeks</text>
+  <!-- Base Track (Muted) -->
+  <path d="M 90 225 C 190 225, 230 190, 330 190 C 440 190, 480 230, 590 230 C 690 230, 720 185, 810 185" fill="none" stroke="#E6E4DF" stroke-width="2"/>
+
+  <!-- Animated Dotted Flow Track -->
+  <path d="M 90 225 C 190 225, 230 190, 330 190 C 440 190, 480 230, 590 230 C 690 230, 720 185, 810 185" fill="none" stroke="#1F4FD8" stroke-width="2" stroke-dasharray="4 6">
+    <animate attributeName="stroke-dashoffset" from="40" to="0" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- STAGE 1: MINUTES (GitHub) -->
+  <g transform="translate(90, 225)">
+    <rect x="-12" y="-12" width="24" height="24" rx="2" fill="none" stroke="#1F4FD8" stroke-width="1.2" opacity="0">
+      <animate attributeName="opacity" values="0.8;0;0" keyTimes="0;0.25;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="12;28;28" keyTimes="0;0.25;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="12;28;28" keyTimes="0;0.25;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x" values="-6;-14;-14" keyTimes="0;0.25;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="-6;-14;-14" keyTimes="0;0.25;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-5" y="-5" width="10" height="10" rx="1.5" fill="#FAFAF8" stroke="#111111" stroke-width="2"/>
+    <rect x="-2" y="-2" width="4" height="4" fill="#2F5D50"/>
+  </g>
+  <!-- Stage 1 Tag -->
+  <g font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace" text-anchor="middle">
+    <text x="90" y="256" font-size="12" font-weight="600" fill="#111111">MINUTES</text>
+    <text x="90" y="272" font-size="11" fill="#2F5D50">5–10m · Self-serve</text>
   </g>
 
-  <!-- SMOOTH 5-PIXEL CONVOY (Negative begin offsets prevent origin sticking) -->
-  <rect x="-2" y="-2" width="4" height="4" rx="1" fill="#0066CC" opacity="0.18">
-    <animateMotion path="M 76 196 C 205 196, 225 156, 336 156 S 515 212, 616 184 S 765 152, 824 156" dur="6s" begin="-0.42s" repeatCount="indefinite" rotate="auto"/>
-  </rect>
-  <rect x="-2.5" y="-2.5" width="5" height="5" rx="1.2" fill="#0066CC" opacity="0.32">
-    <animateMotion path="M 76 196 C 205 196, 225 156, 336 156 S 515 212, 616 184 S 765 152, 824 156" dur="6s" begin="-0.28s" repeatCount="indefinite" rotate="auto"/>
-  </rect>
-  <rect x="-3.5" y="-3.5" width="7" height="7" rx="1.8" fill="#0066CC" opacity="0.55">
-    <animateMotion path="M 76 196 C 205 196, 225 156, 336 156 S 515 212, 616 184 S 765 152, 824 156" dur="6s" begin="-0.14s" repeatCount="indefinite" rotate="auto"/>
-  </rect>
-  <g>
-    <animateMotion path="M 76 196 C 205 196, 225 156, 336 156 S 515 212, 616 184 S 765 152, 824 156" dur="6s" begin="0s" repeatCount="indefinite" rotate="auto"/>
-    <rect x="-5.5" y="-5.5" width="11" height="11" rx="3" fill="#0066CC" stroke="#FFFFFF" stroke-width="1.8"/>
+  <!-- STAGE 2: HOURS (Salesforce) -->
+  <g transform="translate(330, 190)">
+    <rect x="-12" y="-12" width="24" height="24" rx="2" fill="none" stroke="#1F4FD8" stroke-width="1.2" opacity="0">
+      <animate attributeName="opacity" values="0;0.8;0;0" keyTimes="0;0.31;0.56;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="12;12;28;28" keyTimes="0;0.31;0.56;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="12;12;28;28" keyTimes="0;0.31;0.56;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x" values="-6;-6;-14;-14" keyTimes="0;0.31;0.56;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="-6;-6;-14;-14" keyTimes="0;0.31;0.56;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-5" y="-5" width="10" height="10" rx="1.5" fill="#FAFAF8" stroke="#111111" stroke-width="2"/>
+    <rect x="-2" y="-2" width="4" height="4" fill="#3A6B78"/>
+  </g>
+  <g font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace" text-anchor="middle">
+    <text x="330" y="256" font-size="12" font-weight="600" fill="#111111">HOURS</text>
+    <text x="330" y="272" font-size="11" fill="#3A6B78">60–120m · Complex</text>
+  </g>
+
+  <!-- STAGE 3: DAYS (Slack) -->
+  <g transform="translate(590, 230)">
+    <rect x="-12" y="-12" width="24" height="24" rx="2" fill="none" stroke="#1F4FD8" stroke-width="1.2" opacity="0">
+      <animate attributeName="opacity" values="0;0.8;0;0" keyTimes="0;0.64;0.88;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="12;12;28;28" keyTimes="0;0.64;0.88;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="12;12;28;28" keyTimes="0;0.64;0.88;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x" values="-6;-6;-14;-14" keyTimes="0;0.64;0.88;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="-6;-6;-14;-14" keyTimes="0;0.64;0.88;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-5" y="-5" width="10" height="10" rx="1.5" fill="#FAFAF8" stroke="#111111" stroke-width="2"/>
+    <rect x="-2" y="-2" width="4" height="4" fill="#B45309"/>
+  </g>
+  <g font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace" text-anchor="middle">
+    <text x="590" y="256" font-size="12" font-weight="600" fill="#111111">DAYS</text>
+    <text x="590" y="272" font-size="11" fill="#B45309">1–5d · App review</text>
+  </g>
+
+  <!-- STAGE 4: WEEKS (Google) -->
+  <g transform="translate(810, 185)">
+    <rect x="-12" y="-12" width="24" height="24" rx="2" fill="none" stroke="#1F4FD8" stroke-width="1.2" opacity="0">
+      <animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.92;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="width" values="12;12;30" keyTimes="0;0.92;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="height" values="12;12;30" keyTimes="0;0.92;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x" values="-6;-6;-15" keyTimes="0;0.92;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="-6;-6;-15" keyTimes="0;0.92;1" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-5" y="-5" width="10" height="10" rx="1.5" fill="#FAFAF8" stroke="#111111" stroke-width="2"/>
+    <rect x="-2" y="-2" width="4" height="4" fill="#1F4FD8"/>
+  </g>
+  <g font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace" text-anchor="middle">
+    <text x="810" y="256" font-size="12" font-weight="600" fill="#111111">WEEKS</text>
+    <text x="810" y="272" font-size="11" fill="#1F4FD8">14–42d · Verification</text>
+  </g>
+
+  <!-- Moving Pixel Cluster Traveler (Direct Path = 100% GitHub Camo Compatible) -->
+  <use href="#pixel-cluster">
+    <animateMotion 
+      path="M 90 225 C 190 225, 230 190, 330 190 C 440 190, 480 230, 590 230 C 690 230, 720 185, 810 185" 
+      dur="6s" 
+      repeatCount="indefinite" 
+      rotate="auto"
+      calcMode="spline"
+      keyTimes="0;1"
+      keySplines="0.25 0.1 0.25 1" />
+  </use>
+
+  <!-- Bottom Apple-Clean Status Bar -->
+  <line x1="0" y1="292" x2="900" y2="292" stroke="#E6E4DF" stroke-width="1"/>
+  <g font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace" font-size="11" fill="#6B6B6B">
+    <text x="40" y="310">HANDOFF MARKERS: [AGENT CAN HELP] · [YOUR TURN] · [WAITING ON PROVIDER]</text>
+    <text x="860" y="310" text-anchor="end" fill="#111111">EVIDENCE-BACKED RANGES</text>
   </g>
 </svg>
