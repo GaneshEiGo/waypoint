@@ -1,74 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img" aria-labelledby="t d">
-  <title id="t">Waypoint</title>
-  <desc id="d">The word Waypoint reveals itself as a glowing pixel travels a dotted path from minutes to weeks.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Waypoint - Know what you're walking into</title>
+  <desc id="d">The word Waypoint reveals itself as a glowing data packet travels a path from minutes to weeks.</desc>
   <style>
-    .bg { fill: #FAFAF8; stroke: #E6E4DF; }
+    .bg { fill: #FAFAF8; stroke: #E6E4DF; stroke-width: 1; }
+    .grid { stroke: #E6E4DF; stroke-width: 1; opacity: 0.4; }
     
-    /* Text Reveal */
-    .word { font: 400 84px 'Instrument Serif', Georgia, serif; fill: #111; letter-spacing: -1px; }
-    .clip-rect { animation: reveal 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-    @keyframes reveal { 0% { width: 0; } 100% { width: 500px; } }
+    /* Typography */
+    .title { font: 400 90px 'Georgia', serif; fill: #111; letter-spacing: -2px; }
+    .subtitle { font: 500 20px 'Inter', sans-serif; fill: #6B6B6B; letter-spacing: 0.5px; opacity: 0; animation: fadeUp 1s 1.2s ease forwards; }
     
-    .tag { font: 400 20px 'Manrope', Inter, sans-serif; fill: #6B6B6B; opacity: 0; animation: fadeUp 1s 1s ease forwards; }
-    @keyframes fadeUp { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
-
-    /* Path and Pixels */
-    .trail { fill: none; stroke: #1F4FD8; stroke-width: 2; stroke-dasharray: 4 8; opacity: 0.4; animation: march 2s linear infinite; }
-    @keyframes march { to { stroke-dashoffset: -24; } }
+    /* Scanning Mask */
+    .scan-mask { animation: scan 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+    @keyframes scan { 0% { width: 0; } 100% { width: 600px; } }
+    
+    /* Path & Nodes */
+    .path { fill: none; stroke: #1F4FD8; stroke-width: 2; stroke-dasharray: 4 8; opacity: 0.5; animation: dash 20s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -1000; } }
     
     .node { fill: #FAFAF8; stroke: #111; stroke-width: 2; }
-    .ping { fill: none; stroke: #1F4FD8; stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+    .ping { fill: none; stroke: #1F4FD8; stroke-width: 2; opacity: 0; transform-origin: center; animation: pulse 4s infinite; }
     
-    /* Staggered Radar Pings */
-    .p1 { animation: ping 4s 0.5s infinite; }
-    .p2 { animation: ping 4s 2s infinite; }
-    .p3 { animation: ping 4s 3.5s infinite; }
-    .p4 { animation: ping 4s 5s infinite; }
-    @keyframes ping { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2.5); } }
-
-    .lab { font: 500 12px 'JetBrains Mono', monospace; fill: #6B6B6B; text-anchor: middle; text-transform: uppercase; letter-spacing: 1px; }
+    .p1 { animation-delay: 0s; }
+    .p2 { animation-delay: 1s; }
+    .p3 { animation-delay: 2s; }
+    .p4 { animation-delay: 3s; }
+    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(2.5); } }
+    
+    .label { font: 500 12px 'JetBrains Mono', monospace; fill: #6B6B6B; text-transform: uppercase; letter-spacing: 1px; }
+    
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 
-  <rect class="bg" x=".5" y=".5" width="899" height="299" rx="6"/>
+  <rect class="bg" x="0.5" y="0.5" width="999" height="299" rx="6"/>
   
+  <!-- Subtle Background Grid -->
+  <path class="grid" d="M 0 150 L 1000 150 M 0 200 L 1000 200 M 0 250 L 1000 250 M 200 0 L 200 300 M 400 0 L 400 300 M 600 0 L 600 300 M 800 0 L 800 300"/>
+
   <defs>
-    <clipPath id="text-clip">
-      <rect class="clip-rect" x="40" y="30" width="500" height="100" />
+    <clipPath id="reveal">
+      <rect class="scan-mask" x="0" y="0" width="1000" height="300"/>
     </clipPath>
   </defs>
 
-  <text class="word" x="56" y="104" clip-path="url(#text-clip)">Waypoint</text>
-  <text class="tag" x="58" y="140">Know what you’re walking into.</text>
+  <!-- Text -->
+  <text class="title" x="60" y="120" clip-path="url(#reveal)">Waypoint</text>
+  <text class="subtitle" x="64" y="160">Know what you’re walking into.</text>
 
-  <!-- The Path -->
-  <path id="route" class="trail" d="M60 220 C200 220 220 170 330 170 S520 240 620 210 S780 170 840 175"/>
+  <!-- The Route -->
+  <path id="route" class="path" d="M 70 230 C 250 230, 250 180, 350 180 S 500 250, 600 220 S 800 170, 930 180"/>
 
-  <!-- Static Nodes -->
-  <rect class="node" x="53" y="213" width="14" height="14"/>
-  <rect class="node" x="323" y="163" width="14" height="14"/>
-  <rect class="node" x="613" y="203" width="14" height="14"/>
-  <rect class="node" x="833" y="168" width="14" height="14"/>
+  <!-- Waypoint Nodes -->
+  <rect class="node" x="63" y="223" width="14" height="14"/>
+  <rect class="node" x="343" y="173" width="14" height="14"/>
+  <rect class="node" x="593" y="213" width="14" height="14"/>
+  <rect class="node" x="923" y="173" width="14" height="14"/>
 
-  <!-- Pulsing Rings -->
-  <rect class="ping p1" x="50" y="210" width="20" height="20"/>
-  <rect class="ping p2" x="320" y="160" width="20" height="20"/>
-  <rect class="ping p3" x="610" y="200" width="20" height="20"/>
-  <rect class="ping p4" x="830" y="165" width="20" height="20"/>
+  <!-- Ping Animations -->
+  <rect class="ping p1" x="60" y="220" width="20" height="20"/>
+  <rect class="ping p2" x="340" y="170" width="20" height="20"/>
+  <rect class="ping p3" x="590" y="210" width="20" height="20"/>
+  <rect class="ping p4" x="920" y="170" width="20" height="20"/>
 
   <!-- Labels -->
-  <text class="lab" x="60" y="254">minutes</text>
-  <text class="lab" x="330" y="204">hours</text>
-  <text class="lab" x="620" y="244">days</text>
-  <text class="lab" x="840" y="209">weeks</text>
+  <text class="label" x="70" y="265" text-anchor="middle">minutes</text>
+  <text class="label" x="350" y="215" text-anchor="middle">hours</text>
+  <text class="label" x="600" y="255" text-anchor="middle">days</text>
+  <text class="label" x="930" y="215" text-anchor="middle">weeks</text>
 
-  <!-- The Traveler (Glow, Trail, Core) -->
-  <rect width="12" height="12" x="-6" y="-6" fill="#1F4FD8" opacity="0.3">
-    <animateMotion dur="6s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
-  </rect>
-  <rect width="6" height="6" x="-3" y="-3" fill="#1F4FD8" opacity="0.6">
-    <animateMotion dur="6s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
-  </rect>
-  <rect width="4" height="4" x="-2" y="-2" fill="#111">
-    <animateMotion dur="6s" repeatCount="indefinite"><mpath href="#route"/></animateMotion>
-  </rect>
+  <!-- The Traveler (Agent Data Packet) -->
+  <g>
+    <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
+      <mpath href="#route"/>
+    </animateMotion>
+    <!-- Trail -->
+    <circle cx="0" cy="0" r="10" fill="#1F4FD8" opacity="0.2" />
+    <circle cx="0" cy="0" r="6" fill="#1F4FD8" opacity="0.5" />
+    <!-- Core -->
+    <circle cx="0" cy="0" r="3" fill="#111" />
+  </g>
 </svg>
