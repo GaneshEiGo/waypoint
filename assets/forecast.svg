@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" width="900" height="350" role="img" aria-labelledby="t d">
+  <title id="t">Four OAuth setups, to scale</title>
+  <desc id="d">Hands-on time and waiting time for GitHub, Slack, Google and Salesforce. Bar length shows the top of each range on a log scale.</desc>
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="#FAFAF8"/>
+      <rect width="3" height="6" fill="#B45309"/>
+    </pattern>
+  </defs>
+  <style>
+    .bg{fill:#FAFAF8;stroke:#E6E4DF}
+    .app{font:400 24px Georgia,'Times New Roman',serif;fill:#111}
+    .meta,.val,.head,.note{font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:500}
+    .meta{font-size:12px;fill:#6B6B6B}
+    .head{font-size:12px;fill:#6B6B6B;letter-spacing:1.5px}
+    .val{font-size:13px;fill:#111}
+    .none{fill:#9A9A9A}
+    .note{font-size:12px;fill:#9A9A9A}
+    .rule{stroke:#E6E4DF}
+    .bar{transform-box:fill-box;transform-origin:left center;animation:grow 9s cubic-bezier(.2,.7,.2,1) infinite both}
+    @keyframes grow{0%{transform:scaleX(0)}12%,90%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+    .lab{animation:lab 9s ease-out infinite both}
+    @keyframes lab{0%,10%{opacity:0}18%,90%{opacity:1}100%{opacity:0}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+
+  <rect class="bg" x=".5" y=".5" width="899" height="349" rx="4"/>
+  <text class="head" x="40" y="48">APP</text>
+  <text class="head" x="230" y="48">YOUR TIME</text>
+  <text class="head" x="560" y="48">WAITING ON THE PROVIDER</text>
+  <line class="rule" x1="40" y1="64" x2="860" y2="64"/>
+
+  <!-- GitHub -->
+  <text class="app" x="40" y="112">GitHub</text><text class="meta" x="40" y="130">Easy</text>
+  <rect class="bar" x="230" y="96" width="81" height="16" fill="#111" style="animation-delay:0s"/>
+  <text class="val lab" x="321" y="109" style="animation-delay:0s">5–10 min</text>
+  <text class="val none lab" x="560" y="109" style="animation-delay:0s">No wait</text>
+
+  <!-- Slack -->
+  <text class="app" x="40" y="170">Slack</text><text class="meta" x="40" y="188">Medium</text>
+  <rect class="bar" x="230" y="154" width="144" height="16" fill="#111" style="animation-delay:.25s"/>
+  <text class="val lab" x="384" y="167" style="animation-delay:.25s">30–60 min</text>
+  <rect class="bar" x="560" y="154" width="79" height="16" fill="url(#hatch)" stroke="#B45309" style="animation-delay:.25s"/>
+  <text class="val lab" x="649" y="167" style="animation-delay:.25s">1–5 days</text>
+
+  <!-- Google -->
+  <text class="app" x="40" y="228">Google</text><text class="meta" x="40" y="246">Hard</text>
+  <rect class="bar" x="230" y="212" width="182" height="16" fill="#111" style="animation-delay:.5s"/>
+  <text class="val lab" x="422" y="225" style="animation-delay:.5s">120–180 min</text>
+  <rect class="bar" x="560" y="212" width="183" height="16" fill="url(#hatch)" stroke="#B45309" style="animation-delay:.5s"/>
+  <text class="val lab" x="753" y="225" style="animation-delay:.5s">14–42 days</text>
+
+  <!-- Salesforce -->
+  <text class="app" x="40" y="286">Salesforce</text><text class="meta" x="40" y="304">Hard</text>
+  <rect class="bar" x="230" y="270" width="168" height="16" fill="#111" style="animation-delay:.75s"/>
+  <text class="val lab" x="408" y="283" style="animation-delay:.75s">60–120 min</text>
+  <text class="val none lab" x="560" y="283" style="animation-delay:.75s">No wait</text>
+
+  <text class="note" x="40" y="336">Bars show the top of each range, on a log scale. Numbers come from the four guides on the live site.</text>
+</svg>
